@@ -22,7 +22,7 @@ This repository focuses on predicting the **growth dynamics of multicellular tum
 
 Tumor growth is modeled using the **Montroll Growth Model**, which describes population dynamics using a nonlinear differential equation:
 
-\frac{dp}{dt}(t)=k p(t)\left(1-\left(\frac{p(t)}{C}\right)^{\theta}\right)
+$$\frac{dp}{dt}(t)=k p(t)\left(1-\left(\frac{p(t)}{C}\right)^{\theta}\right)$$
 
 Where:
 
@@ -63,27 +63,21 @@ The network learns the tumor growth dynamics by simultaneously fitting experimen
 
 Training the PINN involves minimizing a **composite loss function** that combines data fitting with physics constraints.
 
-[
-\mathcal{L}*{PINN} =
+$$\mathcal{L}*{PINN} =
 \mathcal{L}*{data} +
-\lambda \mathcal{L}_{physics}
-]
+\lambda \mathcal{L}_{physics}$$
 
 Where:
 
 **Data Loss**
 
-[
-\mathcal{L}_{data}
-]
+$$\mathcal{L}_{data}$$
 
 Measures the **mean squared error (MSE)** between the predicted tumor size and the experimental observations.
 
 **Physics Loss**
 
-[
-\mathcal{L}_{physics}
-]
+$$\mathcal{L}_{physics}$$
 
 Ensures that the neural network solution satisfies the Montroll growth differential equation.
 
