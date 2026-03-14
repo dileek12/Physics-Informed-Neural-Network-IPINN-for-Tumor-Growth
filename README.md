@@ -1,7 +1,3 @@
-Here is a **clean, professional rewritten README** for your repository while keeping the same meaning but improving clarity, structure, and academic tone.
-
----
-
 # Physics-Informed Neural Networks (PINNs) for Tumor Cell Growth Modeling
 
 This repository presents an implementation of the methodology proposed in the research paper **“Using Physics-Informed Neural Networks (PINNs) for Tumor Cell Growth Modeling”** by **José Alberto Rodrigues**. The project applies **Physics-Informed Neural Networks (PINNs)** to estimate biological parameters and model tumor cell growth dynamics using experimental data obtained from Chinese hamster **V79 fibroblast tumor cells**.
