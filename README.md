@@ -12,16 +12,16 @@ Governed by the differential equation:
 
 $$\frac{dp}{dt}(t)=kp(t)\left(1-\left(\frac{p(t)}{C}\right)^{\theta}\right)$$
 
-**$k$**: Intrinsic growth rate, **$C$**: Carrying capacity and **$\theta$**: A parameter indicating the position of the inflection point of the growth curve. (Note: If $\theta=1$, this simplifies to the Verhulst model) .
+**$k$**: Intrinsic growth rate.
+**$C$**: Carrying capacity. 
+**$\theta$**: A parameter indicating the position of the inflection point of the growth curve. 
 
 ## 🧠 PINN Architecture & Loss Function
 
 The implementation uses a feedforward neural network architecture:
 
 **Input**: Time ($t$).
-  
 **Hidden Layers**: Multiple layers with activation functions ($\sigma$) such as `tanh` or `ReLU`.
-
 **Output**: Predicted population size $p(t)$.
 
 ### Optimization
@@ -31,14 +31,12 @@ The model minimizes a composite loss function:
 $$\mathcal{L}_{PINN} = \mathcal{L}_{data} + \lambda\mathcal{L}_{physics}$$
 
 **$\mathcal{L}_{data}$**: Mean squared error between predicted and observed experimental data.
-
 **$\mathcal{L}_{physics}$**: Residual term ensuring the solution satisfies the governing growth equations.
-
 **$\lambda$**: Regularization parameter crucial for achieving convergence.
 
 ## 📊 Dataset
 
-The model is trained using experimental data from **Chinese hamster V79 fibroblast tumor cells**, consisting of 45 measurements over 60 days. The initial condition used for the model is $p(3.46)=0.0158$.
+
 
 ## 📈 Key Findings
 
@@ -46,13 +44,9 @@ According to the research:
 
 * Both models accurately predict the asymptotic saturation behavior of tumor growth.
 
-
 * The **Montroll model** provides a better fit to the experimental data and a more accurate prediction of the inflection point due to the flexibility of the $\theta$ parameter.
 
-
 * The final predicted parameters for the Montroll model are approximately $k \approx 0.831$, $C \approx 7.333$, and $\theta \approx 0.169$.
-
-
 
 ## 🛠️ Usage
 
@@ -60,6 +54,5 @@ This methodology can be adopted for any biological phenomenon intended to be mod
 
 ## 📜 Citation
 
-If you use this work, please cite the original paper:
-
+The original paper:
 > Rodrigues, J.A. Using Physics-Informed Neural Networks (PINNS) for Tumor Cell Growth Modeling. *Mathematics* 2024, 12, 1195. 
