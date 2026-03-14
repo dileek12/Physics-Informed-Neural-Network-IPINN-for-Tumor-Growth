@@ -53,6 +53,8 @@ The neural network used in this implementation follows a **feedforward fully con
 * **Output Layer**
   Predicted tumor population **p(t)**
 
+![pinn](images/PINN.png)
+
 The network learns the tumor growth dynamics by simultaneously fitting experimental data and satisfying the governing differential equation.
 
 ---
