@@ -6,74 +6,35 @@ This repository implements the methodology described in the paper **"Using Physi
 
 The project explores the application of **Physics-Informed Neural Networks (PINNs)** to accurately predict the growth behavior of multicellular tumor spheroids. Unlike traditional neural networks, PINNs integrate physical laws directly into the loss function, allowing the model to adhere to biological growth mechanisms even when dealing with noisy experimental data.
 
-## 🧬 Mathematical Models
-
-The repository compares two prominent growth models:
-
-### 1. Verhulst Growth Model (Logistic Growth)
+## 🧬 Mathematical Model (Montroll Growth Model) 
 
 Governed by the differential equation:
-
-
-$$\frac{dp}{dt}(t)=kp(t)\left(1-\frac{p(t)}{C}\right)$$
-
-* 
-**$k$**: Intrinsic growth rate.
-
-
-* 
-**$C$**: Carrying capacity.
-
-
-
-### 2. Montroll Growth Model (Power-law Growth)
-
-Governed by the differential equation:
-
 
 $$\frac{dp}{dt}(t)=kp(t)\left(1-\left(\frac{p(t)}{C}\right)^{\theta}\right)$$
 
-* 
-**$\theta$**: A parameter indicating the position of the inflection point of the growth curve. (Note: If $\theta=1$, this simplifies to the Verhulst model) .
-
-
+**$k$**: Intrinsic growth rate, **$C$**: Carrying capacity and **$\theta$**: A parameter indicating the position of the inflection point of the growth curve. (Note: If $\theta=1$, this simplifies to the Verhulst model) .
 
 ## 🧠 PINN Architecture & Loss Function
 
 The implementation uses a feedforward neural network architecture:
 
-* 
 **Input**: Time ($t$).
-
-
-* 
+  
 **Hidden Layers**: Multiple layers with activation functions ($\sigma$) such as `tanh` or `ReLU`.
 
-
-* 
 **Output**: Predicted population size $p(t)$.
-
-
 
 ### Optimization
 
 The model minimizes a composite loss function:
 
-
 $$\mathcal{L}_{PINN} = \mathcal{L}_{data} + \lambda\mathcal{L}_{physics}$$
 
-* 
 **$\mathcal{L}_{data}$**: Mean squared error between predicted and observed experimental data.
 
-
-* 
 **$\mathcal{L}_{physics}$**: Residual term ensuring the solution satisfies the governing growth equations.
 
-
-* 
 **$\lambda$**: Regularization parameter crucial for achieving convergence.
-
-
 
 ## 📊 Dataset
 
